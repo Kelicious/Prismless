@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610152447) do
+ActiveRecord::Schema.define(:version => 20130610180635) do
+
+  create_table "forums", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.integer  "topic_id"
+    t.integer  "author_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
+  add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
+
+  create_table "topics", :force => true do |t|
+    t.integer  "forum_id"
+    t.integer  "creator_id"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "topics", ["creator_id"], :name => "index_topics_on_creator_id"
+  add_index "topics", ["forum_id"], :name => "index_topics_on_forum_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

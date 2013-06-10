@@ -1,0 +1,6 @@
+<span class="title">
+  <a href="#threads/<%= topic.id %>">
+    <%= topic.escape("title") %>
+  </a>
+</span>
+<span class="number-of-replies"><%= topic.get("posts").length %></span>

@@ -12,5 +12,8 @@ class User < ActiveRecord::Base
   # Custom
   attr_accessible :name
 
+  has_many :threads, foreign_key: "creator_id", inverse_of: :creator
+  has_many :posts, foreign_key: "author_id", inverse_of: :author
+
   validates :name, presence: true
 end

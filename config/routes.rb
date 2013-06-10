@@ -1,6 +1,14 @@
 DiscussGen::Application.routes.draw do
   devise_for :users
 
+  resources :forums, only: [:index, :show] do
+    resources :topics
+  end
+  
+  resources :topics, only: [:show] do
+    resources :posts
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
