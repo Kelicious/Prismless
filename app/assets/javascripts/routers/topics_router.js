@@ -1,8 +1,8 @@
 DG.Routers.TopicsRouter = Backbone.Router.extend({
-  initialize: function ($el, topics) {
+  initialize: function ($content, topics) {
     var that = this;
 
-    that.$el = $el;
+    that.$content = $content;
     that.topics = topics;
   },
 
@@ -17,7 +17,7 @@ DG.Routers.TopicsRouter = Backbone.Router.extend({
       collection: that.topics
     });
     that.topics.fetch();
-    that.$el.html(topicsListView.render().$el);
+    that.$content.html(topicsListView.render().$el);
   },
 
   show: function (id) {
@@ -26,10 +26,10 @@ DG.Routers.TopicsRouter = Backbone.Router.extend({
     var topic = that.topics.get(id);
 
     var topicDetailView = new DG.Views.TopicDetailView({
-      $el: that.$el,
+      $el: that.$content,
       model: topic
     });
 
-    topicDetailView.render();
+    that.$content.html(topicDetailView.render().$el);
   }
 });

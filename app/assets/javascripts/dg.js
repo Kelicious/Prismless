@@ -4,9 +4,13 @@ window.DG = {
   Routers: {},
   Views: {},
 
-  initialize: function ($content) {
-    var topicsData = $content.data('topics');
-    var topics = new DG.Collections.Topics(topicsData);
+  initialize: function ($content, forumId) {
+    var topicsData = $('div.content').data('topics');
+    var topics = new DG.Collections.Topics(topicsData, {
+      forumId: forumId
+    });
+
+    topicsCollection = topics;
     new DG.Routers.TopicsRouter($content, topics);
     Backbone.history.start();
   }

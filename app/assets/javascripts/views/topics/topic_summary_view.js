@@ -12,7 +12,7 @@ DG.Views.TopicSummaryView = Backbone.View.extend({
       topic: that.model
     });
 
-    that.$el.html(renderedContent);
+    that.$el = $(renderedContent);
     return that;
   }
 });

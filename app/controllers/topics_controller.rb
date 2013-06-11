@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.where(forum_id: params[:forum_id])
     render json: @topics.to_json(include: :posts)
   end
 

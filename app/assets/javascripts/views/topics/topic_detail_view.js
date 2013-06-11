@@ -2,10 +2,9 @@ DG.Views.TopicDetailView = Backbone.View.extend({
   initialize : function () {
     var that = this;
     
-    that.$el = that.options.$el;
     that.listenTo(that.model, 'change reset', that.render.bind(that));
     that.listenTo(that.model, 'add:posts', that.renderPost.bind(that));
-    that.model.fetch({reset: true});
+    that.model.fetch();
   },
 
   render: function () {
@@ -15,7 +14,7 @@ DG.Views.TopicDetailView = Backbone.View.extend({
       topic: that.model
     });
 
-    that.$el.html(renderedContent);
+    that.$el = $(renderedContent);
     that.model.get("posts").each(that.renderPost.bind(that));
 
     return that;
