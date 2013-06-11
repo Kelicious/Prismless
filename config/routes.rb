@@ -6,8 +6,10 @@ DiscussGen::Application.routes.draw do
   end
   
   resources :topics, only: [:index, :show] do
-    resources :posts
+    resources :posts, only: [:create]
   end
+
+  resources :posts, only: [:create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

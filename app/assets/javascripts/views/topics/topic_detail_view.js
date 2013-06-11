@@ -16,11 +16,12 @@ DG.Views.TopicDetailView = Backbone.View.extend({
 
     that.$el = $(renderedContent);
     that.model.get("posts").each(that.renderPost.bind(that));
+    that.fillNewPostForm();
 
     return that;
   },
 
-  renderPost: function(post) {
+  renderPost: function (post) {
     var that = this;
 
     var postDetailView = new DG.Views.PostDetailView({
@@ -30,5 +31,17 @@ DG.Views.TopicDetailView = Backbone.View.extend({
     that.$('section.posts').append(postDetailView.render().$el);
 
     return that;
+  },
+
+  fillNewPostForm: function () {
+    var that = this;
+    
+    var newPostView = new DG.Views.NewPostView({
+      collection: that.model.get('posts')
+    });
+
+    newPostView.render();
+
+    that.$('section.reply').html(newPostView.render().$el);
   }
 });

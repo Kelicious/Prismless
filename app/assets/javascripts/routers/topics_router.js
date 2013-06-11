@@ -1,5 +1,6 @@
 DG.Routers.TopicsRouter = Backbone.Router.extend({
   initialize: function ($content, topics) {
+    ROUTER = this;
     var that = this;
 
     that.$content = $content;
@@ -8,7 +9,8 @@ DG.Routers.TopicsRouter = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "threads/:id": "show"
+    "topics/new": "new",
+    "topics/:id": "show"
   },
 
   index: function () {
@@ -31,5 +33,15 @@ DG.Routers.TopicsRouter = Backbone.Router.extend({
     });
 
     that.$content.html(topicDetailView.render().$el);
+  },
+
+  new: function () {
+    var that = this;
+
+    var newTopicView = new DG.Views.NewTopicView({
+      collection: that.topics
+    });
+
+    that.$content.html(newTopicView.render().$el);
   }
 });
