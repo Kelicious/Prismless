@@ -3,8 +3,9 @@ DG.Views.TopicDetailView = Backbone.View.extend({
     var that = this;
     
     that.$el = that.options.$el;
-    that.model.on('change reset', that.render.bind(that));
-    that.model.on('add:posts', that.renderPost.bind(that));
+    that.listenTo(that.model, 'change reset', that.render.bind(that));
+    that.listenTo(that.model, 'add:posts', that.renderPost.bind(that));
+    that.model.fetch({reset: true});
   },
 
   render: function () {
@@ -15,6 +16,7 @@ DG.Views.TopicDetailView = Backbone.View.extend({
     });
 
     that.$el.html(renderedContent);
+    that.model.get("posts").each(that.renderPost.bind(that));
 
     return that;
   },
@@ -25,8 +27,9 @@ DG.Views.TopicDetailView = Backbone.View.extend({
     var postDetailView = new DG.Views.PostDetailView({
       model: post
     });
-
+    
     that.$('section.posts').append(postDetailView.render().$el);
+
     return that;
   }
 });

@@ -5,7 +5,7 @@ DiscussGen::Application.routes.draw do
     resources :topics
   end
   
-  resources :topics, only: [:show] do
+  resources :topics, only: [:index, :show] do
     resources :posts
   end
 

@@ -1,3 +1,5 @@
 DG.Collections.Topics = Backbone.Collection.extend({
-  urlRoot: '/topics'
+  url: '/topics',
+  urlRoot: '/topics',
+  model: DG.Models.Topic
 });

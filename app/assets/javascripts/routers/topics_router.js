@@ -13,22 +13,23 @@ DG.Routers.TopicsRouter = Backbone.Router.extend({
 
   index: function () {
     var that = this;
-    
     var topicsListView = new DG.Views.TopicsListView({
       collection: that.topics
     });
-
+    that.topics.fetch();
     that.$el.html(topicsListView.render().$el);
   },
 
   show: function (id) {
     var that = this;
 
-    var topic = DG.Models.Topic.findOrCreate({id: id});
+    var topic = that.topics.get(id);
+
     var topicDetailView = new DG.Views.TopicDetailView({
       $el: that.$el,
       model: topic
     });
-    topic.fetch();
+
+    topicDetailView.render();
   }
 });
