@@ -31,6 +31,8 @@ DG.Views.NewTopicView = Backbone.View.extend({
     var post = new DG.Models.Post({body: that.$('textarea[name=body]').val()});
     that.topic.get('posts').add(post);
     var errors = that.form.commit({validate: true});
-    that.collection.create(that.topic);
+    if (_(errors).isEmpty()) {
+      that.collection.create(that.topic);
+    }
   }
 });
