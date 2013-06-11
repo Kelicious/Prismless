@@ -1,6 +1,5 @@
 DG.Routers.TopicsRouter = Backbone.Router.extend({
   initialize: function ($content, topics) {
-    ROUTER = this;
     var that = this;
 
     that.$content = $content;
@@ -18,7 +17,6 @@ DG.Routers.TopicsRouter = Backbone.Router.extend({
     var topicsListView = new DG.Views.TopicsListView({
       collection: that.topics
     });
-    that.topics.fetch();
     that.$content.html(topicsListView.render().$el);
   },
 

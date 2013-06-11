@@ -15,9 +15,7 @@ DG.Views.NewTopicView = Backbone.View.extend({
   addForm: function () {
     var that = this;
 
-    that.topic = new DG.Models.Topic({
-
-    });
+    that.topic = new DG.Models.Topic();
     
     that.form = new Backbone.Form({
       model: that.topic
