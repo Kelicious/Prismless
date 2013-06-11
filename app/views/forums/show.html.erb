@@ -1,8 +1,8 @@
-<%= content_tag "section", "", id: "topics", data: {topics: @forum.topics.to_json(include: :posts)} %>
+<%= content_tag "section", "", id: "topics", class: "topics", data: {topics: @forum.topics.to_json(include: :posts)} %>
 
 <script type="text/javascript">
   $(function () {
     $topics = $('#topics');
-    window.DG.initialize($topics);
+    window.DG.initialize($topics, <%= @forum.id %>);
   });
 </script>

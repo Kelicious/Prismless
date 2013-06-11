@@ -1,4 +1,5 @@
 DG.Views.PostDetailView = Backbone.View.extend({
+  tagName: 'article',
   initialize: function () {
     var that = this;
 
@@ -12,7 +13,7 @@ DG.Views.PostDetailView = Backbone.View.extend({
       post: that.model
     });
 
-    that.$el.html(renderedContent);
+    that.$el = $(renderedContent);
     return that;
   }
 });
