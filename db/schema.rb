@@ -11,13 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610180635) do
+ActiveRecord::Schema.define(:version => 20130611220627) do
 
-  create_table "forums", :force => true do |t|
+  create_table "categories", :force => true do |t|
     t.string   "name"
+    t.integer  "community_id"
+    t.string   "slug"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "categories", ["community_id"], :name => "index_categories_on_community_id"
+  add_index "categories", ["slug"], :name => "index_categories_on_slug", :unique => true
+
+  create_table "communities", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "communities", ["slug"], :name => "index_communities_on_slug", :unique => true
+
+  create_table "forums", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "category_id"
+  end
+
+  add_index "forums", ["category_id"], :name => "index_forums_on_category_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "topic_id"

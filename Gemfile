@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem "friendly_id", "~> 4.0.9"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,4 +40,4 @@ gem 'ejs'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
