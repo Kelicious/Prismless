@@ -5,4 +5,12 @@ class Post < ActiveRecord::Base
   belongs_to :author, class_name: "User"
 
   validates :body, :topic, presence: true
+
+  after_create :set_topic_last_post_at
+
+  private
+
+  def set_topic_last_post_at
+    topic.update_attribute(:last_post_at, created_at)
+  end
 end

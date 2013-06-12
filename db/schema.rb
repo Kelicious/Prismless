@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612141900) do
+ActiveRecord::Schema.define(:version => 20130612153118) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -58,12 +58,14 @@ ActiveRecord::Schema.define(:version => 20130612141900) do
     t.integer  "forum_id"
     t.integer  "creator_id"
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "last_post_at"
   end
 
   add_index "topics", ["creator_id"], :name => "index_topics_on_creator_id"
   add_index "topics", ["forum_id"], :name => "index_topics_on_forum_id"
+  add_index "topics", ["last_post_at"], :name => "index_topics_on_last_post_at"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

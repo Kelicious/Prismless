@@ -16,6 +16,8 @@ DiscussGen::Application.routes.draw do
   end
   
   resources :topics, only: [:index, :show] do
-    resources :posts, only: [:create]
+    
   end
+
+  resources :posts, only: [:create]
 end

@@ -4,7 +4,7 @@ class Community < ActiveRecord::Base
 
   attr_accessible :name
 
-  has_many :categories, inverse_of: :community
+  has_many :categories, inverse_of: :community, dependent: :destroy
 
   validates :name, presence: true
 end

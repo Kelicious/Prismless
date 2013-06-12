@@ -8,4 +8,12 @@ class Topic < ActiveRecord::Base
   belongs_to :creator, class_name: "User"
 
   validates :title, :forum, :creator, presence: :true
+
+  before_save :set_first_post_author
+
+  private
+
+  def set_first_post_author
+    posts.first.author = creator
+  end
 end
