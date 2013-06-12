@@ -2,6 +2,8 @@ DiscussGen::Application.routes.draw do
   root to: 'forums#index'
   devise_for :users
 
+  resources :users, only: [:show]
+
   resources :communities do
     resources :categories, only: [:new, :create]
   end
