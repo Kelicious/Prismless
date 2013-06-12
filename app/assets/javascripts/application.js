@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.timeago
 //= require backbone-rails
 //= require backbone-relational
 //= require backbone-forms

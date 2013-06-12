@@ -17,6 +17,7 @@ DG.Views.TopicsListView = Backbone.View.extend({
   },
 
   renderTopicSummary: function (topic) {
+    console.log(topic);
     var that = this;
 
     var topicSummaryView = new DG.Views.TopicSummaryView({

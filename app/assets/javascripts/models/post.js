@@ -6,5 +6,10 @@ DG.Models.Post = Backbone.RelationalModel.extend({
       type: 'TextArea',
       validators: ['required']
     }
-  }
+  },
+  relations: [{
+    type: Backbone.HasOne,
+    key: 'author',
+    relatedModel: 'DG.Models.User'
+  }]
 });

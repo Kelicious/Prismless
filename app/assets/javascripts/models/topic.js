@@ -20,5 +20,14 @@ DG.Models.Topic = Backbone.RelationalModel.extend({
       type: 'TextArea',
       validators: ['required']
     }
+  },
+  creator: function () {
+    return this.get("posts").first().get("author");
+  },
+  lastPoster: function () {
+    return this.get("posts").last().get("author");
+  },
+  lastPostTime: function () {
+    return this.get("posts").last().get("created_at");
   }
 });

@@ -1,4 +1,4 @@
-<%= content_tag "div", "", class: "content", data: {topics: @forum.topics.to_json(include: :posts)} %>
+<%= content_tag "div", "", class: "content", data: {topics: @forum.topics.to_json(include: {posts: {methods: :author}})} %>
 
 <script type="text/javascript">
   $(function () {
