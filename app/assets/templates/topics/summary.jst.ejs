@@ -5,19 +5,23 @@
         <%= topic.escape("title") %>
       </a>
     </div>
-    <div class="creator">
-      Started by
-      <a href="<%= topic.creator().profilePath() %>">
-        <%= topic.creator().get("name") %>
-      </a>
-    </div>
-    <div class="last-poster">
-      Last post by
-      <a href="<%= topic.lastPoster().profilePath() %>">
-        <%= topic.lastPoster().get("name") %>
-      </a>
-      (<time><%= jQuery.timeago(topic.lastPostTime()) %></time>)
-    </div>
+    <% if (topic.creator()) {%>
+      <div class="creator">
+        Started by
+        <a href="<%= topic.creator().profilePath() %>">
+          <%= topic.creator().get("name") %>
+        </a>
+      </div>
+    <% } %>
+    <% if (topic.lastPoster()) { %>
+      <div class="last-poster">
+        Last post by
+        <a href="<%= topic.lastPoster().profilePath() %>">
+          <%= topic.lastPoster().get("name") %>
+        </a>
+        (<time><%= jQuery.timeago(topic.lastPostTime()) %></time>)
+      </div>
+    <% } %>
   </td>
   <td class="num-replies">
     <span><%= topic.get("posts").length %></span>

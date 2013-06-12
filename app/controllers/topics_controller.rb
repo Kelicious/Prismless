@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
     topic = current_user.topics.new(params[:topic])
     topic.forum_id = params[:forum_id]
     if topic.save
-      render json: topic.to_json(include: :posts)
+      render json: topic.to_json(include: {posts: {methods: :author}})
     else
       render json: topic.errors, status: 422
     end

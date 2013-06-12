@@ -10,6 +10,7 @@ DG.Models.Post = Backbone.RelationalModel.extend({
   relations: [{
     type: Backbone.HasOne,
     key: 'author',
-    relatedModel: 'DG.Models.User'
+    relatedModel: 'DG.Models.User',
+    includeInJSON: false
   }]
 });
