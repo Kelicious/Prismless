@@ -1,8 +1,10 @@
-<article class="topic-summary">
-  <span class="title">
+<tr class="topic-summary">
+  <td class="title">
     <a href="#topics/<%= topic.id %>">
       <%= topic.escape("title") %>
     </a>
-  </span>
-  <span class="number-of-replies"><%= topic.get("posts").length %></span>
-</article>
+  </td>
+  <td class="num-replies">
+    <span><%= topic.get("posts").length %></span>
+  </td>
+</tr>

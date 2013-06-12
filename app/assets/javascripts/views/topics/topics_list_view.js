@@ -23,6 +23,6 @@ DG.Views.TopicsListView = Backbone.View.extend({
       model: topic
     });
 
-    that.$('section.topics').prepend(topicSummaryView.render().$el);
+    that.$('table.topics > tbody').append(topicSummaryView.render().$el);
   }
 });
