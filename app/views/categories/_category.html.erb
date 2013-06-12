@@ -1,9 +1,10 @@
-<article class="category">
-  <section class="info">
-    <%= category.name %>
-    <%= link_to "Add Forum", new_category_forum_path(category) %>
-  </section>
-  <section class="forums">
+<table class="category">
+  <thead>
+    <th><%= category.name %></th>
+    <th><%= link_to "Add Forum", new_category_forum_path(category) %></th>
+    <th>Latest Activity</th>
+  </thead>
+  <tbody>
     <%= render category.forums %>
-  </section>
-</article>
+  </tbody>
+</table>

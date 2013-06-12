@@ -28,3 +28,22 @@ ul.nav.pull-right {
     }
   }
 }
+
+table.category {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+
+  tr {
+    border-bottom: 1px solid #ddd;
+
+    td, th {
+      text-align: left;
+    }
+
+    h5 {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
