@@ -1,5 +1,10 @@
-<%= simple_form_for([@category, @forum]) do |f| %>
+<%= simple_form_for @forum  do |f| %>
   <%= f.error_notification %>
+  <% if @forum.category && !(@forum.id) %>
+    <%= f.hidden_field :category_id %>
+  <% else %>
+    <%= f.association :category, collection: @forum.community.categories, required: true %>
+  <% end %>
 
   <div class="form-inputs">
     <%= f.input :name, required: true, autofocus: true %>

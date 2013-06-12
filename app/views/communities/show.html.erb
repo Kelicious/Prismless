@@ -1,7 +1,7 @@
 <h2><%= @community.name %></h2>
 
 <section class="admin-panel">
-  <%= link_to "Add Category", new_community_category_path(@community) %>
+  <%= link_to "Add Category", new_community_category_path(@community), class: "btn btn-success" %>
 </section>
 <section class="categories">
   <%= render @community.categories %>

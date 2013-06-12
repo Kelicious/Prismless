@@ -8,13 +8,15 @@ DiscussGen::Application.routes.draw do
     resources :categories, only: [:new, :create]
   end
   resources :categories, except: [:new, :index] do
-    resources :forums, only: [:new, :create]
+    resources :forums, only: [:new]
   end
 
   resources :forums, only: [:index, :show] do
     resources :topics
   end
   
+  resources :forums, only: [:create, :edit, :update]
+
   resources :topics, only: [:index, :show] do
     
   end

@@ -4,15 +4,18 @@ class ForumsController < ApplicationController
   end
 
   def new
-    @category = Category.find(params[:category_id])
-    @forum = @category.forums.new
+    if (id = params[:category_id])
+      category = Category.find(params[:category_id])
+      @forum = category.forums.new
+    else
+      @forum = Forum.new
+    end
   end
 
   def create
     @forum = Forum.new(params[:forum])
-    @forum.category = Category.find_by_slug(params[:category_id])
     if @forum.save
-      redirect_to @forum
+      redirect_to @forum.community
     else
       render :new
     end
@@ -20,5 +23,24 @@ class ForumsController < ApplicationController
 
   def show
     @forum = Forum.find(params[:id])
+  end
+
+  def edit
+    @forum = Forum.find(params[:id])
+  end
+
+  def update
+    @forum = Forum.find(params[:id])
+    if @forum.update_attributes(params[:forum])
+      redirect_to @forum.community
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @forum = Forum.find(params[:id])
+    @forum.destroy
+    redirect_to @forum.community
   end
 end

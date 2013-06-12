@@ -1,8 +1,13 @@
 <table class="category">
   <thead>
-    <th><%= category.name %></th>
-    <th><%= link_to "Add Forum", new_category_forum_path(category) %></th>
-    <th>Latest Activity</th>
+    <tr>
+      <th><%= category.name %></th>
+      <th>Latest Activity</th>
+      <th class="admin">
+        <%= link_to "Add Forum", new_category_forum_path(category), class: "btn btn-success" %>
+        <%= link_to "Delete Category", category, method: :delete, confirm: "Are you sure you want to delete the category #{category.name}?", class: "btn btn-danger" %>
+      </th>
+    </tr>
   </thead>
   <tbody>
     <%= render category.forums %>

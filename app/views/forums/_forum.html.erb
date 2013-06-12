@@ -1,9 +1,16 @@
 <tr>
-  <td colspan="2">
+  <td>
     <h5><%= link_to forum.name, forum %></h5>
     <span><%= forum.description %></span>
   </td>
   <td>
-    Blah blah blah
+    <% if (topic = forum.last_topic_for(current_user)) %>
+      <%= link_to topic.title, backbone_topic_path(topic) %>
+      <time>(<%= time_ago_in_words(topic.last_post_at) %> ago)</time>
+    <% end %>
   </td>
+  <th class="admin">
+    <%= link_to "Edit Forum", edit_forum_path(forum), class: "btn btn-warning" %>
+    <%= link_to "Delete Forum", forum, method: :delete, confirm: "Are you sure you want to delete the forum #{forum.name}?", class: "btn btn-danger" %>
+  </th>
 </tr>

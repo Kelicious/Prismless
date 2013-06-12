@@ -29,13 +29,31 @@ ul.nav.pull-right {
   }
 }
 
+.btn {
+  font-weight: bold;
+}
+
+.btn-danger {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 150px;
+}
+
 table.category {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
 
   tr {
+    .admin {
+      width: 260px;
+    }
+
     border-bottom: 1px solid #ddd;
+
+    td:nth-child(2), th:nth-child(2) {
+      width: 200px;
+    }
 
     td, th {
       text-align: left;
