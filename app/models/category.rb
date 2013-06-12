@@ -5,7 +5,7 @@ class Category < ActiveRecord::Base
   attr_accessible :name, :community_id
   
   belongs_to :community, inverse_of: :categories
-  has_many :forums
+  has_many :forums, inverse_of: :category, dependent: :destroy
 
   validates :name, presence: true
 end

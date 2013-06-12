@@ -5,7 +5,9 @@ DiscussGen::Application.routes.draw do
   resources :communities do
     resources :categories, only: [:new, :create]
   end
-  resources :categories, except: [:new, :index]
+  resources :categories, except: [:new, :index] do
+    resources :forums, only: [:new, :create]
+  end
 
   resources :forums, only: [:index, :show] do
     resources :topics

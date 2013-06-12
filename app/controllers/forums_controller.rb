@@ -4,11 +4,13 @@ class ForumsController < ApplicationController
   end
 
   def new
-    @forum = Forum.new
+    @category = Category.find(params[:category_id])
+    @forum = @category.forums.new
   end
 
   def create
     @forum = Forum.new(params[:forum])
+    @forum.category = Category.find_by_slug(params[:category_id])
     if @forum.save
       redirect_to @forum
     else

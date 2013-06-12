@@ -1,6 +1,7 @@
 <article class="category">
   <section class="info">
     <%= category.name %>
+    <%= link_to "Add Forum", new_category_forum_path(category) %>
   </section>
   <section class="forums">
     <%= render category.forums %>
