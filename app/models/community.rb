@@ -5,6 +5,8 @@ class Community < ActiveRecord::Base
   attr_accessible :name, :privacy, :password, :password_confirmation
 
   has_many :categories, inverse_of: :community, dependent: :destroy
+  has_many :adminships, inverse_of: :community, dependent: :destroy
+  has_many :admins, through: :adminships, source: :user
 
   validates :name, presence: true
   validates :password, presence: true, length: { minimum: 6 }, if: :private?
@@ -41,4 +43,8 @@ class Community < ActiveRecord::Base
   private
 
   attr_reader :password, :password_confirmation
+
+  def has_admin?(user)
+    admins.include?(user)
+  end
 end

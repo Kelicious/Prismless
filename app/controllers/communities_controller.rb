@@ -9,6 +9,7 @@ class CommunitiesController < ApplicationController
 
   def create
     @community = Community.new(params[:community])
+    @community.admins << current_user
     if @community.save
       redirect_to @community
     else
