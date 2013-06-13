@@ -23,7 +23,7 @@ class Community < ActiveRecord::Base
   end
 
   def visible_to?(user)
-    public? || members.include?()
+    public? || admins.include?(user) || members.include?(user)
   end
 
   def authenticate(unencrypted_password)
