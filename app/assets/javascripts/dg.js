@@ -5,7 +5,7 @@ window.DG = {
   Views: {},
 
   initialize: function ($content, forumId) {
-    var topicsData = $('div.content').data('topics');
+    var topicsData = $('#topics').data('topics');
     var topics = new DG.Collections.Topics(topicsData, {
       forumId: forumId
     });

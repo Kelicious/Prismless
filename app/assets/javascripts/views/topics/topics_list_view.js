@@ -4,12 +4,13 @@ DG.Views.TopicsListView = Backbone.View.extend({
 
     that.collection.on("reset change", that.render.bind(that));
     that.collection.on("add", that.renderTopicSummary.bind(that));
+    that.collection.reset();
     that.collection.fetch();
   },
 
   render: function () {
     var that = this;
-    
+
     renderedContent = JST["topics/list"]();
     that.$el = $(renderedContent);
     that.collection.each(that.renderTopicSummary.bind(that));

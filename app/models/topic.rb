@@ -11,6 +11,8 @@ class Topic < ActiveRecord::Base
 
   before_save :set_first_post_author
 
+  default_scope order('topics.last_post_at DESC')
+
   private
 
   def set_first_post_author
