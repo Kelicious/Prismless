@@ -13,7 +13,7 @@
     <div class="last-poster">
       <% last_post = topic.posts.last %>
       Last post by <%= link_to last_post.author.name, last_post.author %>
-      (<time><%= time_ago_in_words(last_post.created_at) %></time>)
+      (<time><%= time_ago_in_words(last_post.created_at) %> ago</time>)
     </div>
   </td>
   <td class="num-replies">
