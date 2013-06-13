@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612153118) do
+ActiveRecord::Schema.define(:version => 20130613180142) do
+
+  create_table "adminships", :force => true do |t|
+    t.integer "community_id"
+    t.integer "user_id"
+  end
+
+  add_index "adminships", ["community_id"], :name => "index_adminships_on_community_id"
+  add_index "adminships", ["user_id"], :name => "index_adminships_on_user_id"
 
   create_table "categories", :force => true do |t|
     t.string   "name"
