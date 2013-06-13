@@ -28,7 +28,12 @@ DG.Views.NewPostView = Backbone.View.extend({
     var that = this;
     var errors = that.form.commit({validate: true});
     if (_(errors).isEmpty()) {
-      that.collection.create(that.post);
+      that.collection.create(that.post, {
+        success: function() {
+          that.form.remove();
+          that.addForm();
+        }
+      });
     }
   }
 });
