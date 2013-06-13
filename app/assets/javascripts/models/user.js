@@ -4,6 +4,7 @@ DG.Models.User = Backbone.RelationalModel.extend({
   },
 
   gravatarUrl: function () {
-    return "https://secure.gravatar.com/avatar/" + $.gravatar(this.get("email"));
+    var email = this.get("email").trim().toLowerCase();
+    return "https://secure.gravatar.com/avatar/" + $.gravatar(email);
   }
 });
