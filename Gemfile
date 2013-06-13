@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem "friendly_id", "~> 4.0.9"
 gem 'kaminari'
+gem 'bcrypt-ruby'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612153118) do
+ActiveRecord::Schema.define(:version => 20130613212402) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(:version => 20130612153118) do
   create_table "communities", :force => true do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "privacy"
+    t.string   "password_digest"
   end
 
   add_index "communities", ["slug"], :name => "index_communities_on_slug", :unique => true
@@ -42,6 +44,16 @@ ActiveRecord::Schema.define(:version => 20130612153118) do
   end
 
   add_index "forums", ["category_id"], :name => "index_forums_on_category_id"
+
+  create_table "memberships", :force => true do |t|
+    t.integer "community_id"
+    t.integer "user_id"
+    t.integer "level",        :default => 0, :null => false
+  end
+
+  add_index "memberships", ["community_id"], :name => "index_memberships_on_community_id"
+  add_index "memberships", ["level"], :name => "index_memberships_on_level"
+  add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "topic_id"
