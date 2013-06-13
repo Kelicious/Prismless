@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.timeago
+//= require md5
+//= require jquery.gravatar
 //= require backbone-rails
 //= require backbone-relational
 //= require backbone-forms

@@ -1,3 +1,12 @@
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
 body {
   padding-top: 60px;
 }
@@ -94,6 +103,30 @@ table.topic-summaries {
 
     td.num-replies {
       font-weight: bold;
+    }
+  }
+}
+
+article.post {
+  padding: 10px 10px 10px 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #f6f6f6;
+
+  section.info {
+    background: #f6f6f6;
+    
+    div {
+      display: inline-block;
+      padding: 8px 2px;
+
+      a, time {
+        vertical-align: middle;
+      }
+    }
+
+    .gravatar > img{
+      width: 20px;
+      height: 20px;
     }
   }
 }
