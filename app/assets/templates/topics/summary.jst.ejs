@@ -1,9 +1,11 @@
 <tr class="topic-summary">
   <td class="info">
     <div class="title">
-      <a href="#topics/<%= topic.id %>">
-        <%= topic.escape("title") %>
-      </a>
+      <h4>
+        <a href="#topics/<%= topic.id %>">
+          <%= topic.escape("title") %>
+        </a>
+      </h4>
     </div>
     <% if (topic.creator()) {%>
       <div class="creator">
