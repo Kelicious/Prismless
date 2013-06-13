@@ -1,6 +1,7 @@
 <section class="forum">
-  <h2>Topics</h2>
-  <a href="#topics/new">New Topic</a>
+  <h2><%= @forum.name %></h2>
+  <%= link_to "New Topic", new_forum_topic_path(@forum) %>
+  <%= paginate @topics %>
   <section class="topic-summaries">
     <table class="topic-summaries">
       <thead>
@@ -10,7 +11,9 @@
         </tr>
       </thead>
       <tbody>
-        
+        <% @topics.each do |topic| %>
+          <%= render partial: 'topics/summary', locals: {topic: topic} %>
+        <% end %>
       </tbody>
     </table>
   </section>

@@ -1,21 +1,26 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.where(forum_id: params[:forum_id]).page params[:page]
-    render json: @topics.to_json(include: {posts: {methods: :author}})
+    @forum = Forum.find(params[:forum_id])
+    @topics = @forum.topics.page params[:page]
+  end
+
+  def new
+    @forum = Forum.find(params[:forum_id])
+    @topic = @forum.topics.new
+    @topic.posts.build
   end
 
   def create
-    topic = current_user.topics.new(params[:topic])
-    topic.forum_id = params[:forum_id]
-    if topic.save
-      render json: topic.to_json(include: {posts: {methods: :author}})
+    @topic = current_user.topics.new(params[:topic])
+    @topic.forum_id = params[:forum_id]
+    if @topic.save
+      redirect_to @topic
     else
-      render json: topic.errors, status: 422
+      render :new
     end
   end
 
   def show
     @topic = Topic.find(params[:id])
-    render json: @topic.to_json(include: :posts)
   end
 end

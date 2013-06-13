@@ -1,0 +1,15 @@
+<article class="post">
+  <section class="info">
+    <% user = post.author %>
+    <div class="gravatar">
+      <%= gravatar_for user %>
+    </div>
+    <div class="name">
+      <%= link_to user.name, user %>
+    </div>
+    <div class="time">
+      (<time><%= time_ago_in_words(post.created_at) %></time>)
+    </div>
+  </section>
+  <section class="body"><%= post.body %></section>
+</article>

@@ -3,9 +3,10 @@ class PostsController < ApplicationController
     post = current_user.posts.new(params[:post])
     post.topic_id = params[:topic_id] if params[:topic_id]
     if post.save
-      render json: post.to_json(include: :author)
+      redirect_to post.topic
     else
-      render json: post.errors, status: 422
+      flash[:error] = post.errors.full_messages.join("\n")
+      redirect_to post.topic
     end
   end
 end

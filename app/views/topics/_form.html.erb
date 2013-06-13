@@ -1,0 +1,16 @@
+<%= simple_form_for([@topic.forum, @topic]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title, required: true, autofocus: :true %>
+  </div>
+
+  <%= f.simple_fields_for(:posts) do |post_form| %>
+    <%= post_form.error_notification %>
+    <%= post_form.input :body, as: :text, required: :true %>
+  <% end %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

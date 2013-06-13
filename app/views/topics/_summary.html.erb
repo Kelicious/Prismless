@@ -1,0 +1,24 @@
+<tr class="topic-summary">
+  <td class="info">
+    <div class="title">
+      <h4>
+        <%= link_to topic.title, topic %>
+      </h4>
+    </div>
+    <% creator = topic.creator %>
+    <div class="creator">
+      Started by
+      <%= link_to creator.name, creator %>
+    </div>
+    <div class="last-poster">
+      <% last_post = topic.posts.last %>
+      Last post by <%= link_to last_post.author.name, last_post.author %>
+      (<time><%= time_ago_in_words(last_post.created_at) %></time>)
+    </div>
+  </td>
+  <td class="num-replies">
+    <span><%= topic.posts.length %></span>
+    <br>
+    <span>Posts</span>
+  </td>
+</tr>

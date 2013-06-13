@@ -11,13 +11,11 @@ DiscussGen::Application.routes.draw do
     resources :forums, only: [:new]
   end
 
-  resources :forums, only: [:index, :show] do
+  resources :forums, only: [:index, :show, :create, :edit, :update] do
     resources :topics
   end
   
-  resources :forums, only: [:create, :edit, :update]
-
-  resources :topics, only: [:index, :show] do
+  resources :topics, only: [:show] do
     
   end
 
