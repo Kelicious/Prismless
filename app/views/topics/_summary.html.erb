@@ -16,6 +16,11 @@
       (<time><%= time_ago_in_words(last_post.created_at) %> ago</time>)
     </div>
   </td>
+  <td class="votes">
+    <%= points_with_color(topic.posts.first).html_safe %>
+    <br>
+    <span>Points</span>
+  </td>
   <td class="num-replies">
     <span><%= topic.posts.length %></span>
     <br>

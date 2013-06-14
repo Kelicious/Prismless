@@ -18,5 +18,8 @@ DiscussGen::Application.routes.draw do
   
   resources :topics, only: [:show]
 
-  resources :posts, only: [:create]
+  resources :posts, only: [:create] do
+    post 'votes', to: 'votes#create'
+    delete 'votes', to: 'votes#destroy'
+  end
 end

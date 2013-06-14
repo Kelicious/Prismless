@@ -106,6 +106,16 @@ table.topic-summaries {
     }
   }
 }
+.votes {
+  font-weight: bold;
+
+  > .up {
+    color: #0a0;
+  }
+  > .down {
+    color: red;
+  }
+}
 
 article.post {
   padding: 10px 10px 10px 0;

@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :topic_id
 
+  has_many :votes, inverse_of: :post
+
   belongs_to :topic, inverse_of: :posts
   belongs_to :author, class_name: "User"
 
@@ -10,6 +12,10 @@ class Post < ActiveRecord::Base
   validates :body, :topic, presence: true
 
   after_create :set_topic_last_post_at
+
+  def points
+    @points ||= votes.sum("votes.value")
+  end
 
   private
 
