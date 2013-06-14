@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
       flash[:error] = favorite.errors.full_messages.join("<br>")
     end
 
-    redirect_to Community.find(params[:community_id])
+    redirect_back_or Community.find(params[:community_id])
   end
 
   def destroy
@@ -21,6 +21,6 @@ class FavoritesController < ApplicationController
       flash[:error] = "Invalid action"
     end
 
-    redirect_to community
+    redirect_back_or community
   end
 end

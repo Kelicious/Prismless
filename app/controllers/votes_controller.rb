@@ -10,7 +10,7 @@ class VotesController < ApplicationController
       flash[:error] = vote.errors.full_messages.join("<br>")
     end
 
-    redirect_to Post.find(params[:post_id]).topic
+    redirect_back_or Post.find(params[:post_id]).topic
   end
 
   def destroy
@@ -24,6 +24,6 @@ class VotesController < ApplicationController
       flash[:error] = vote.errors.full_messages.join("<br>");
     end
 
-    redirect_to Post.find(params[:post_id]).topic
+    redirect_back_or Post.find(params[:post_id]).topic
   end
 end
