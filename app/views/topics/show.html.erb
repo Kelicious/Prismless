@@ -2,13 +2,13 @@
   <section class="title">
     <h2><%= @topic.title %></h2>
   </section>
+  <%= paginate @posts %>
   <section class="posts">
-    <%= render @topic.posts %>
+    <%= render @posts %>
   </section>
+  <%= paginate @posts %>
   <section class="reply">
     <%= render partial: 'posts/form', locals: {post: @topic.posts.new} %>
   </section>
-  <%= link_to "Back", @topic.forum %>
+  <%= link_to "Topic List", @topic.forum %>
 </article>
-
-

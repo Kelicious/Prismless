@@ -32,5 +32,6 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     authenticate_privacy(@topic)
+    @posts = @topic.posts.page params[:page]
   end
 end
