@@ -7,8 +7,10 @@ class Community < ActiveRecord::Base
   has_many :categories, inverse_of: :community, dependent: :destroy
   has_many :adminships, inverse_of: :community, dependent: :destroy
   has_many :admins, through: :adminships, source: :user
-  has_many :memberships, inverse_of: :community
+  has_many :memberships, inverse_of: :community, dependent: :destroy
   has_many :members, through: :memberships, source: :user
+
+  has_many :favorites, dependent: :destroy
 
   validates :name, presence: true
   validates :password, presence: true, length: { minimum: 6 }, if: :private?

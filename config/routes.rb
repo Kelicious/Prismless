@@ -7,6 +7,9 @@ DiscussGen::Application.routes.draw do
   resources :communities do
     resources :categories, only: [:new, :create]
     resources :memberships, only: [:new, :create]
+
+    post 'favorites', to: 'favorites#create'
+    delete 'favorites', to: 'favorites#destroy'
   end
   resources :categories, except: [:new, :index] do
     resources :forums, only: [:new]

@@ -11,11 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614135635) do
+ActiveRecord::Schema.define(:version => 20130614153222) do
 
   create_table "adminships", :force => true do |t|
-    t.integer "community_id"
-    t.integer "user_id"
+    t.integer  "community_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "adminships", ["community_id"], :name => "index_adminships_on_community_id"
@@ -43,6 +45,17 @@ ActiveRecord::Schema.define(:version => 20130614135635) do
 
   add_index "communities", ["slug"], :name => "index_communities_on_slug", :unique => true
 
+  create_table "favorites", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "favorites", ["community_id", "user_id"], :name => "index_favorites_on_community_id_and_user_id", :unique => true
+  add_index "favorites", ["community_id"], :name => "index_favorites_on_community_id"
+  add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
+
   create_table "forums", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",  :null => false
@@ -54,8 +67,10 @@ ActiveRecord::Schema.define(:version => 20130614135635) do
   add_index "forums", ["category_id"], :name => "index_forums_on_category_id"
 
   create_table "memberships", :force => true do |t|
-    t.integer "community_id"
-    t.integer "user_id"
+    t.integer  "community_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "memberships", ["community_id"], :name => "index_memberships_on_community_id"
@@ -106,9 +121,11 @@ ActiveRecord::Schema.define(:version => 20130614135635) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.integer "post_id"
-    t.integer "user_id"
-    t.integer "value"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "votes", ["post_id", "user_id"], :name => "index_votes_on_post_id_and_user_id", :unique => true

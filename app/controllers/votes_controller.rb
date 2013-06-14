@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     elsif (vote.value = 1) && vote.save
       flash[:success] = "Upvoted!"
     else
-      flash[:error] = vote.errors.full_messages.join("<br>");
+      flash[:error] = vote.errors.full_messages.join("<br>")
     end
 
     redirect_to Post.find(params[:post_id]).topic

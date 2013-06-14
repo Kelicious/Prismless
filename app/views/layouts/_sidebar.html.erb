@@ -1,0 +1,8 @@
+<div class="sidebar-nav span2">
+  <ul class="nav nav-list">
+    <li class="nav-header">Favorites</li>
+    <% communities.each do |community| %>
+      <li><%= link_to community.name, community %></li>
+    <% end %>
+  </ul>
+</div>
