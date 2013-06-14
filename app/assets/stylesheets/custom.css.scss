@@ -11,6 +11,8 @@ body {
   padding-top: 60px;
 }
 
+/* Header */
+
 #logo {
   text-decoration: none;
   float: left;
@@ -34,6 +36,20 @@ ul.nav.pull-right {
     }
     > a {
       font-weight: bold;
+    }
+  }
+}
+
+/* Community/Forum/Topic nav */
+
+section.nav {
+  ul.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      display: inline;
     }
   }
 }

@@ -1,3 +1,9 @@
+<%= render partial: 'layouts/nav', locals: {
+      community: @forum.community,
+      forum: @forum,
+    } %>
+
+
 <section class="forum">
   <h2><%= @forum.name %></h2>
   <%= link_to "New Topic", new_forum_topic_path(@forum) %>

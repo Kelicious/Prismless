@@ -1,3 +1,9 @@
+<%= render partial: 'layouts/nav', locals: {
+      community: @topic.community,
+      forum: @topic.forum,
+      topic: @topic
+    } %>
+
 <article class="topic">
   <section class="title">
     <h2><%= @topic.title %></h2>

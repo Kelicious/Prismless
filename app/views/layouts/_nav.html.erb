@@ -1,0 +1,13 @@
+<section class="nav">
+  <ul class="nav-links">
+    <li><%= link_to community.name, community %></li>
+    <% if defined?(forum) %>
+      <span class="divider">/</span>
+      <li><%= link_to forum.name, forum_topics_path(forum) %></li>
+    <% end %>
+    <% if defined?(topic) %>
+      <span class="divider">/</span>
+      <li><%= link_to topic.title, topic %></li>
+    <% end %>
+  </ul>
+</section>

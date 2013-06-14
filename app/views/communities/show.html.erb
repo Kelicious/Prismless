@@ -1,10 +1,18 @@
-<h2><%= @community.name %></h2>
+<%= render partial: 'layouts/nav', locals: {
+      community: @community,
+    } %>
 
-<% if current_user.is_admin?(@community) %>
-  <section class="admin-panel">
-    <%= link_to "Add Category", new_community_category_path(@community), class: "btn btn-success" %>
+
+<article class="community">
+  <section class="title">
+    <h2><%= @community.name %></h2>
   </section>
-<% end %>
-<section class="categories">
-  <%= render @community.categories %>
-</section>
+  <% if current_user.is_admin?(@community) %>
+    <section class="admin-panel">
+      <%= link_to "Add Category", new_community_category_path(@community), class: "btn btn-success" %>
+    </section>
+  <% end %>
+  <section class="categories">
+    <%= render @community.categories %>
+  </section>
+</article>
