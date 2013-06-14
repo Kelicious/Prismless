@@ -7,7 +7,10 @@
 
   <%= f.simple_fields_for(:posts) do |post_form| %>
     <%= post_form.error_notification %>
-    <%= post_form.input :body, as: :text, required: :true %>
+    <%= post_form.input :body, as: :text, required: :true,
+        input_html: {class: "tinymce", rows: 40, cols: 120} %>
+    <%= tinymce_assets %>
+    <%= tinymce %>
   <% end %>
 
   <div class="form-actions">

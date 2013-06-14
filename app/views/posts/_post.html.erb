@@ -11,7 +11,7 @@
       (<time><%= time_ago_in_words(post.created_at) %> ago</time>)
     </div>
   </section>
-  <section class="body"><%= post.body %></section>
+  <section class="body"><%= post.body.html_safe %></section>
   <section class="votes">
     <%= link_to "▲", post_votes_path(post), method: :post, class: 'up' %>
     <%= points_with_color(post).html_safe %>
