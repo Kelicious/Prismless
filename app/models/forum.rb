@@ -5,6 +5,7 @@ class Forum < ActiveRecord::Base
   has_many :posts, through: :topics, dependent: :destroy
   belongs_to :category, inverse_of: :forums
   delegate :community, to: :category
+  delegate :visible_to?, to: :community
 
   validates :name, :description, :category_id, presence: :true
 

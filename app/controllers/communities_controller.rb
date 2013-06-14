@@ -1,7 +1,5 @@
 class CommunitiesController < ApplicationController
-  def index
-    @communities = Community.all
-  end
+  before_filter :authenticate_user!, only: [:new, :create]
 
   def new
     @community = Community.new
@@ -23,5 +21,6 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
+    authenticate_privacy(@community)
   end
 end

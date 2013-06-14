@@ -7,6 +7,9 @@ class Topic < ActiveRecord::Base
   belongs_to :forum, inverse_of: :topics
   belongs_to :creator, class_name: "User"
 
+  delegate :community, to: :forum
+  delegate :visible_to?, to: :community
+
   validates :title, :forum, :creator, :posts, presence: :true
 
   before_save :set_first_post_author

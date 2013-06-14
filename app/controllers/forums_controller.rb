@@ -1,15 +1,8 @@
 class ForumsController < ApplicationController
-  def index
-    @forums = Forum.all
-  end
-
   def new
-    if (id = params[:category_id])
-      category = Category.find(params[:category_id])
-      @forum = category.forums.new
-    else
-      @forum = Forum.new
-    end
+    category = Category.find(params[:category_id])
+    authenticate_privacy(category)
+    @forum = category.forums.new
   end
 
   def create

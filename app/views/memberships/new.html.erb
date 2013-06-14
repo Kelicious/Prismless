@@ -1,0 +1,12 @@
+<%= @community.name %>
+
+<%= form_tag community_memberships_path(@community), method: :post do %>
+  <div class="form-controls">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+
+  <div class="form-actions">
+    <%= submit_tag "Authenticate", class: "btn" %>
+  </div>
+<% end %>

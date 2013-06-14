@@ -1,11 +1,12 @@
 DiscussGen::Application.routes.draw do
-  root to: 'forums#index'
+  root to: 'static#home'
   devise_for :users
 
   resources :users, only: [:show]
 
   resources :communities do
     resources :categories, only: [:new, :create]
+    resources :memberships, only: [:new, :create]
   end
   resources :categories, except: [:new, :index] do
     resources :forums, only: [:new]
@@ -15,9 +16,7 @@ DiscussGen::Application.routes.draw do
     resources :topics
   end
   
-  resources :topics, only: [:show] do
-    
-  end
+  resources :topics, only: [:show]
 
   resources :posts, only: [:create]
 end
