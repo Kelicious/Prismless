@@ -1,3 +1,10 @@
+<%= render partial: 'layouts/nav', locals: {
+      community: @post.community,
+      forum: @post.forum,
+      topic: @post.topic
+    } %>
+
+
 <h2>Edit Post</h2>
 
 <%= render partial: 'form', locals: {post: @post} %>

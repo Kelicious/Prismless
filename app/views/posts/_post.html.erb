@@ -1,5 +1,5 @@
 <article class="post">
-  <section class="info">
+  <section class="info clearfix">
     <% user = post.author %>
     <div class="gravatar">
       <%= gravatar_for user %>
@@ -17,6 +17,11 @@
     <% end %>
   </section>
   <section class="body"><%= post.body.html_safe %></section>
+  <% if post.edited? %>
+    <small>
+      <em>Last edited <%= time_ago_in_words(post.updated_at) %> ago</em>
+    </small>
+  <% end %>
   <section class="votes">
     <%= link_to "▲", post_votes_path(post), method: :post, class: 'up' %>
     <%= points_with_color(post).html_safe %>

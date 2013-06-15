@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   belongs_to :author, class_name: "User"
 
   delegate :community, to: :topic
+  delegate :forum, to: :topic
   delegate :visible_to?, to: :community
 
   validates :body, :topic, presence: true
@@ -15,6 +16,10 @@ class Post < ActiveRecord::Base
 
   def points
     @points ||= votes.sum("votes.value")
+  end
+
+  def edited?
+    created_at != updated_at
   end
 
   private
