@@ -10,6 +10,11 @@
     <div class="time">
       (<time><%= time_ago_in_words(post.created_at) %> ago</time>)
     </div>
+    <% if current_user.can_edit?(post) %>
+      <div class="edit-panel">
+        <%= link_to "Edit", edit_post_path(post) %>
+      </div>
+    <% end %>
   </section>
   <section class="body"><%= post.body.html_safe %></section>
   <section class="votes">

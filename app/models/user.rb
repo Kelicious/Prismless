@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
   def is_admin?(community)
     community.has_admin?(self)
   end
+
+  def can_edit?(post)
+    (id == post.author_id) || (is_admin?(post.community))
+  end
 end
