@@ -1,4 +1,4 @@
-<section class="nav">
+<section class="nav" data-id="<%= community.slug %>">
   <ul class="nav-links">
     <li><%= link_to community.name, community %></li>
     <% if defined?(forum) %>
@@ -10,11 +10,8 @@
       <li><%= link_to topic.title, topic %></li>
     <% end %>
   </ul>
-  <section class="favorite-button">
-    <% if current_user.favorite_communities.include?(community) %>
-      <%= link_to "Unfavorite", community_favorites_path(community), method: :delete %>
-    <% else %>
-      <%= link_to "Favorite", community_favorites_path(community), method: :post %>
-    <% end %>
+  <section class="favorite-buttons">
+    <%= favorite_button_for(community) %>
+    <%= unfavorite_button_for(community) %>
   </section>
 </section>

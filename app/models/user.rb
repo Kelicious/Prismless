@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
 
+  def favorited?(community)
+    favorite_community_ids.include?(community.id)
+  end
+
   def is_admin?(community)
     community.has_admin?(self)
   end
