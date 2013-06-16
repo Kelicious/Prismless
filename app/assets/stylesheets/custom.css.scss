@@ -143,6 +143,7 @@ article.post {
 
   section.info {
     background: #f6f6f6;
+    position: relative;
     
     div {
       display: inline-block;
@@ -154,7 +155,8 @@ article.post {
     }
 
     div.edit-panel {
-      float: right;
+      position: absolute;
+      right: 0;
     }
 
     .gravatar > img{
