@@ -13,7 +13,7 @@ $(document).ready(function () {
       .html(response.points);
   };
 
-  $posts.on('click', 'a', function () {
+  $posts.on('click', 'section.votes > a', function () {
     var $post = $(this).parent().parent();
     $.ajax({
       type: $(this).hasClass('up') ? 'POST' : 'DELETE',
