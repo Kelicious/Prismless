@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_privacy(authenticatable)
+    authenticate_user!
+
     unless authenticatable.visible_to?(current_user)
       flash[:error] = "This community is private"
       community = (authenticatable.class == Community) ? authenticatable : authenticatable.community
@@ -24,6 +26,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin(authenticatable)
+    authenticate_user!
+
     community = (authenticatable.class == Community) ? authenticatable : authenticatable.community
     unless community.has_admin?(current_user)
       flash[:error] = "Insufficient privileges"
