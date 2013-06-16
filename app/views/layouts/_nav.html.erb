@@ -3,7 +3,7 @@
     <li><%= link_to community.name, community %></li>
     <% if defined?(forum) %>
       <span class="divider">/</span>
-      <li><%= link_to forum.name, forum_topics_path(forum) %></li>
+      <li><%= link_to forum.name, forum %></li>
     <% end %>
     <% if defined?(topic) %>
       <span class="divider">/</span>

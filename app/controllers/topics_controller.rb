@@ -1,12 +1,4 @@
 class TopicsController < ApplicationController
-  def index
-    @forum = Forum.find(params[:forum_id])
-    
-    authenticate_privacy(@forum)
-
-    @topics = @forum.topics.page params[:page]
-  end
-
   def new
     @forum = Forum.find(params[:forum_id])
 

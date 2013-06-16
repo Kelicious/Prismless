@@ -15,6 +15,12 @@ class ForumsController < ApplicationController
     end
   end
 
+  def show
+    @forum = Forum.find(params[:id])
+    authenticate_privacy(@forum)
+    @topics = @forum.topics.page params[:page]
+  end
+  
   def edit
     @forum = Forum.find(params[:id])
     authenticate_admin(@forum)

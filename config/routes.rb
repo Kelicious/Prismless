@@ -15,7 +15,7 @@ DiscussGen::Application.routes.draw do
     resources :forums, only: [:new]
   end
 
-  resources :forums, only: [:index, :show, :create, :edit, :update] do
+  resources :forums, except: [:index] do
     resources :topics
   end
   

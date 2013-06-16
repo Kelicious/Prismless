@@ -16,5 +16,5 @@
   <section class="reply">
     <%= render partial: 'posts/form', locals: {post: @topic.posts.new} %>
   </section>
-  <%= link_to "Topic List", forum_topics_path(@topic.forum) %>
+  <%= link_to "Topic List", @topic.forum %>
 </article>
