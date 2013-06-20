@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   def new
     @forum = Forum.find(params[:forum_id])
-
     authenticate_privacy(@forum)
 
     @topic = @forum.topics.new
@@ -25,5 +24,13 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authenticate_privacy(@topic)
     @posts = @topic.posts.page params[:page]
+  end
+
+  def toggle_pinned
+    @topic = Topic.find(params[:topic_id])
+    authenticate_admin(@topic)
+    @topic.toggle!(:pinned)
+    flash[:notice] = @topic.pinned? ? "Pinned!" : "Unpinned!"
+    redirect_back_or @topic
   end
 end

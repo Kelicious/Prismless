@@ -8,6 +8,11 @@
   <section class="title">
     <h2><%= @topic.title %></h2>
   </section>
+  <section class="buttons">
+    <% if current_user.is_admin?(@topic.community) %>
+      <%= link_to @topic.pinned? ? "Unpin" : "Pin", topic_toggle_pinned_path(@topic), method: :put %>
+    <% end %>
+  </section>
   <%= paginate @posts %>
   <section class="posts">
     <%= render @posts %>

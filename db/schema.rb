@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614153222) do
+ActiveRecord::Schema.define(:version => 20130620005135) do
 
   create_table "adminships", :force => true do |t|
     t.integer  "community_id"
@@ -91,9 +91,10 @@ ActiveRecord::Schema.define(:version => 20130614153222) do
     t.integer  "forum_id"
     t.integer  "creator_id"
     t.string   "title"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.datetime "last_post_at"
+    t.boolean  "pinned",       :default => false, :null => false
   end
 
   add_index "topics", ["creator_id"], :name => "index_topics_on_creator_id"

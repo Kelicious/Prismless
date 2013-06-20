@@ -2,6 +2,9 @@
   <td class="info">
     <div class="title">
       <h4>
+        <% if topic.pinned? %>
+          <i class="icon-exclamation-sign"></i>
+        <% end %>
         <%= link_to topic.title, topic %>
       </h4>
     </div>

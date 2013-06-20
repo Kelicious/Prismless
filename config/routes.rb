@@ -19,7 +19,9 @@ DiscussGen::Application.routes.draw do
     resources :topics
   end
   
-  resources :topics, only: [:show]
+  resources :topics, only: [:show] do
+    put 'toggle_pinned'
+  end
 
   resources :posts, only: [:create, :edit, :update] do
     post 'votes', to: 'votes#create'

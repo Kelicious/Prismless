@@ -1,6 +1,8 @@
 class Topic < ActiveRecord::Base
   attr_accessible :title, :forum_id, :posts_attributes
 
+  alias_attribute :pinned?, :pinned
+
   has_many :posts, inverse_of: :topic, dependent: :destroy
   accepts_nested_attributes_for :posts
   
@@ -14,7 +16,9 @@ class Topic < ActiveRecord::Base
 
   before_save :set_first_post_author
 
-  default_scope order('topics.last_post_at DESC')
+  def self.by_pinned
+    order('topics.pinned DESC').order('topics.last_post_at DESC')
+  end
 
   private
 

@@ -18,7 +18,7 @@ class ForumsController < ApplicationController
   def show
     @forum = Forum.find(params[:id])
     authenticate_privacy(@forum)
-    @topics = @forum.topics.page params[:page]
+    @topics = @forum.topics.by_pinned.page params[:page]
   end
   
   def edit
