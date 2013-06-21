@@ -1,4 +1,4 @@
-DiscussGen::Application.routes.draw do
+OurCommunity::Application.routes.draw do
   root to: 'static#home'
   devise_for :users
 
