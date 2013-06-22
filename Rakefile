@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-DiscussGen::Application.load_tasks
+OurCommunity::Application.load_tasks

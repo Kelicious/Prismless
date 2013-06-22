@@ -1,6 +1,8 @@
 OurCommunity::Application.routes.draw do
   root to: 'static#home'
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'omniauth_callbacks'
+  }
 
   resources :users, only: [:show]
 
