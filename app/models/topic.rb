@@ -1,4 +1,6 @@
 class Topic < ActiveRecord::Base
+  include Concerns::Viewable
+
   attr_accessible :title, :forum_id, :posts_attributes
 
   alias_attribute :pinned?, :pinned
@@ -18,6 +20,15 @@ class Topic < ActiveRecord::Base
 
   def self.by_pinned
     order('topics.pinned DESC').order('topics.last_post_at DESC')
+  end
+
+  def views_count
+    views.sum(:count)
+  end
+
+  def new_to?(user)
+    view = view_for(user)
+    !view || (view.updated_at < last_post_at)
   end
 
   private

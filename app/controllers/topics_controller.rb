@@ -23,6 +23,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     authenticate_privacy(@topic)
+    @topic.register_view_by(current_user)
     @posts = @topic.posts.page params[:page]
   end
 

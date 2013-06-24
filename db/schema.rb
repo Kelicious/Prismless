@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622001605) do
+ActiveRecord::Schema.define(:version => 20130623224554) do
 
   create_table "adminships", :force => true do |t|
     t.integer  "community_id"
@@ -122,6 +122,18 @@ ActiveRecord::Schema.define(:version => 20130622001605) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "views", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "viewable_id"
+    t.string   "viewable_type"
+    t.integer  "count",         :default => 0, :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "views", ["user_id"], :name => "index_views_on_user_id"
+  add_index "views", ["viewable_id"], :name => "index_views_on_viewable_id"
 
   create_table "votes", :force => true do |t|
     t.integer  "post_id"
