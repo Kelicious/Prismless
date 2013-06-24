@@ -5,7 +5,7 @@
         <% if topic.pinned? %>
           <i class="icon-exclamation-sign"></i>
         <% end %>
-        <%= link_to topic.title, topic %>
+        <%= link_to topic.title, topic, class: topic.new_to?(current_user) ? "unread" : "" %>
       </h4>
     </div>
     <% creator = topic.creator %>

@@ -108,6 +108,10 @@ table.topic-summaries {
     a {
       font-weight: normal;
     }
+
+    a.unread {
+      font-weight: bold;
+    }
   }
 
   tr {
@@ -127,8 +131,13 @@ table.topic-summaries {
     td.num-replies {
       font-weight: bold;
     }
+
+    td.num-views {
+      font-weight: bold;
+    }
   }
 }
+
 .votes {
   font-weight: bold;
 
