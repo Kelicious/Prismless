@@ -5,7 +5,7 @@
   </td>
   <td>
     <% if (topic = forum.last_topic_for(current_user)) %>
-      <%= link_to topic.title, backbone_topic_path(topic) %>
+      <%= link_to topic.title, topic %>
       <time>(<%= time_ago_in_words(topic.last_post_at) %> ago)</time>
     <% end %>
   </td>
