@@ -1,6 +1,9 @@
 class FavoritesController < ApplicationController
   def create
     community = Community.find(params[:community_id])
+
+    authenticate_privacy(community)
+
     favorite = community.favorites.new(user_id: current_user.id)
     if favorite.save
       flash[:success] = "Favorited!" unless request.xhr?
