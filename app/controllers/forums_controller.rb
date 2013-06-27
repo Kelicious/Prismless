@@ -1,4 +1,6 @@
 class ForumsController < ApplicationController
+  before_filter :load_and_authenticate_forum, only: [:edit, :update, :destroy]
+
   def new
     category = Category.find(params[:category_id])
     authenticate_admin(category)
@@ -22,13 +24,9 @@ class ForumsController < ApplicationController
   end
   
   def edit
-    @forum = Forum.find(params[:id])
-    authenticate_admin(@forum)
   end
 
   def update
-    @forum = Forum.find(params[:id])
-    authenticate_admin(@forum)
     if @forum.update_attributes(params[:forum])
       redirect_to @forum.community
     else
@@ -37,9 +35,14 @@ class ForumsController < ApplicationController
   end
 
   def destroy
-    @forum = Forum.find(params[:id])
-    authenticate_admin(@forum)
     @forum.destroy
     redirect_to @forum.community
+  end
+
+  private
+
+  def load_and_authenticate_forum
+    @forum = Forum.find(params[:id])
+    authenticate_admin(@forum)
   end
 end
