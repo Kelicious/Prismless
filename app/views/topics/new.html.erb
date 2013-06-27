@@ -1,4 +1,8 @@
 <% provide(:title, 'New Topic') %>
+<%= render partial: 'layouts/nav', locals: {
+      community: @topic.community,
+      forum: @forum,
+    } %>
 <h2>New Topic</h2>
 
 <%= render partial: 'form' %>

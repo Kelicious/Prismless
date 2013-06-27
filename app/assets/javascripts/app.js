@@ -43,6 +43,7 @@ $(document).ready(function () {
       type: $(this).hasClass('favorite') ? 'POST' : 'DELETE',
       url: '/communities/' + $communityNav.data('id') + '/favorites'
     }).done(setFavoriteVisibility);
+
     return false;
   });
 });
