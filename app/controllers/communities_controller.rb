@@ -15,10 +15,6 @@ class CommunitiesController < ApplicationController
     end
   end
 
-  def edit
-    @community = Community.find(params[:id])
-  end
-
   def show
     @community = Community.find(params[:id])
     authenticate_privacy(@community)
