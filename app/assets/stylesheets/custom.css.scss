@@ -50,6 +50,14 @@ ul.nav.pull-right {
   padding: 4px;
 }
 
+.accordion-heading {
+  > .accordion-toggle {
+    > .icon-chevron-down {
+      float: right;
+    }
+  }
+}
+
 /* Community/Forum/Topic nav */
 
 section.nav {

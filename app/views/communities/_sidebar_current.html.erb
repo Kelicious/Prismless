@@ -6,7 +6,11 @@
     <div class="accordion-group">
       <div class="accordion-heading">
         <% id = "category-#{category.id}-forums" %>
-        <%= link_to category.name, "##{id}", data: {toggle: "collapse", parent: "#acc"}, class: "accordion-toggle" %>
+        <a href="#<%= id %>" data-toggle="collapse" data-parent="#acc" class="accordion-toggle">
+          <%= category.name %>
+          <span class="icon-chevron-down"></span>
+        </a>
+        <%#= link_to category.name, "##{id}", data: {toggle: "collapse", parent: "#acc"}, class: "accordion-toggle" %>
       </div>
       <div class="accordion-body collapse" id="<%= id %>">
         <div class="accordion-inner">
