@@ -1,4 +1,7 @@
 <% provide(:title, @forum.name) %>
+<% content_for :sidebar_current do %>
+  <%= render partial: 'communities/sidebar_current', locals: {community: @forum.community} %>
+<% end %>
 <%= render partial: 'layouts/nav', locals: {
       community: @forum.community,
       forum: @forum,

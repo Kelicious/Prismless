@@ -1,4 +1,9 @@
 <% provide(:title, "New Forum") %>
+<% content_for :sidebar_current do %>
+  <%= render partial: 'communities/sidebar_current', locals: {community: @forum.community} %>
+<% end %>
+<%= render partial: 'layouts/nav', locals: {community: @forum.community} %>
+
 <h2>New Forum</h2>
 
 <%= render partial: 'form' %>

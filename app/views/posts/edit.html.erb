@@ -1,4 +1,7 @@
 <% provide(:title, 'Edit Post') %>
+<% content_for :sidebar_current do %>
+  <%= render partial: 'communities/sidebar_current', locals: {community: @post.community} %>
+<% end %>
 <%= render partial: 'layouts/nav', locals: {
       community: @post.community,
       forum: @post.forum,

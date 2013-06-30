@@ -3,6 +3,7 @@
     <%= community.name %>
   </div>
   <% community.categories.each do |category| %>
+    <% next if category.name.nil? %>
     <div class="accordion-group">
       <div class="accordion-heading">
         <% id = "category-#{category.id}-forums" %>

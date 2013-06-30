@@ -1,6 +1,6 @@
 <% provide(:title, @community.name) %>
 <% content_for :sidebar_current do %>
-  <%= render partial: 'sidebar_current', locals: {community: @community} %>
+  <%= render partial: 'communities/sidebar_current', locals: {community: @community} %>
 <% end %>
 <%= render partial: 'layouts/nav', locals: {community: @community} %>
 

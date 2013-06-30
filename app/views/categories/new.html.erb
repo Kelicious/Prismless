@@ -1,4 +1,9 @@
 <% provide(:title, 'New Category') %>
+<% content_for :sidebar_current do %>
+  <%= render partial: 'communities/sidebar_current', locals: {community: @community} %>
+<% end %>
+<%= render partial: 'layouts/nav', locals: {community: @community} %>
+
 <h2>New Category</h2>
 
 <%= render partial: 'form' %>
