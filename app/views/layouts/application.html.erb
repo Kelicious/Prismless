@@ -10,10 +10,7 @@
     <%= render partial: 'layouts/header' %>
     <div class="container-fluid">
       <div class="row-fluid">
-        <% if current_user && current_user.favorites.length > 0 %>
-          <%= render partial: 'layouts/sidebar',
-              locals: {communities: current_user.favorite_communities} %>
-        <% end %>
+        <%= render partial: 'layouts/sidebar' %>
         <div class="span10">
           <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>"><%= value %></div>
