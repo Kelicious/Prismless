@@ -24,7 +24,7 @@ body {
   font-weight: bold;
   font-size: 1.7em;
   line-height: 1;
-  padding: 9px 0;
+  padding: 9px;
 }
 
 #logo:hover {
@@ -46,6 +46,9 @@ ul.nav.pull-right {
 
 /* Sidebar */
 
+.accordion-inner {
+  padding: 4px;
+}
 
 /* Community/Forum/Topic nav */
 

@@ -1,0 +1,22 @@
+<div class="accordion" id="acc">
+  <div class="nav-header">
+    <%= community.name %>
+  </div>
+  <% community.categories.each do |category| %>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <% id = "category-#{category.id}-forums" %>
+        <%= link_to category.name, "##{id}", data: {toggle: "collapse", parent: "#acc"}, class: "accordion-toggle" %>
+      </div>
+      <div class="accordion-body collapse" id="<%= id %>">
+        <div class="accordion-inner">
+          <ul class="nav nav-list tree">
+            <% category.forums.each do |forum| %>
+              <li><%= link_to forum.name, forum %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

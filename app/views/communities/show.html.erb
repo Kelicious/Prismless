@@ -1,8 +1,8 @@
 <% provide(:title, @community.name) %>
-<%= render partial: 'layouts/nav', locals: {
-      community: @community,
-    } %>
-
+<% content_for :sidebar_current do %>
+  <%= render partial: 'sidebar_current', locals: {community: @community} %>
+<% end %>
+<%= render partial: 'layouts/nav', locals: {community: @community} %>
 
 <article class="community">
   <section class="title">

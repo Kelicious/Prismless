@@ -1,5 +1,6 @@
 <div class="sidebar-nav span2">
-  <ul class="nav nav-list">
+  <%= yield(:sidebar_current) %>
+  <ul class="nav nav-tabs nav-stacked">
     <li class="nav-header">Favorites</li>
     <% communities.each do |community| %>
       <li><%= link_to community.name, community %></li>
