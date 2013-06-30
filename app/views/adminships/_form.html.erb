@@ -1,0 +1,6 @@
+<%= simple_form_for(@user.adminships.new) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.collection_select :community_id, current_user.communities, :id, :name %>
+  <br>
+  <%= f.submit "Add User as Admin" %>
+<% end %>

@@ -4,5 +4,6 @@ class Adminship < ActiveRecord::Base
   belongs_to :community
   belongs_to :user
 
-  validates :community_id, :user_id, presence: true
+  validates :user_id, :community_id, presence: true
+  validates :user_id, uniqueness: {scope: [:community_id]}
 end

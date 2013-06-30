@@ -6,6 +6,8 @@ Unprismatic::Application.routes.draw do
 
   resources :users, only: [:show]
 
+  resources :adminships, only: [:create]
+
   resources :communities do
     resources :categories, only: [:new, :create]
     resources :memberships, only: [:new, :create]

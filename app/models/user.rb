@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :posts, foreign_key: "author_id", inverse_of: :author
 
   has_many :adminships, dependent: :destroy
+  has_many :communities, through: :adminships
   has_many :favorites, dependent: :destroy
   has_many :favorite_communities, through: :favorites, source: :community
 

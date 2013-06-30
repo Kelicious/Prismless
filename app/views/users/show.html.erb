@@ -1,6 +1,23 @@
 <% provide(:title, @user.name) %>
 
-<h2>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h2>
+<article class="profile">
+  <section class="name">
+    <h2>
+      <%= gravatar_for @user %>
+      <%= @user.name %>
+    </h2>
+  </section>
+  <% if signed_in? && current_user.communities.length > 0 %>
+    <%= render partial: 'adminships/form', locals: {user: @user} %>
+  <% end %>
+  <section class="info">
+    <table>
+      <tbody>
+        <tr>
+          <th class="info-label">Join Date</th>
+          <td class="info-data"><%= @user.created_at.to_s :long %></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</article>
