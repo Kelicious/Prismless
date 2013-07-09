@@ -1,0 +1,35 @@
+article.post {
+  padding: 10px 10px 10px 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #f6f6f6;
+
+  section.info {
+    background: #f6f6f6;
+    position: relative;
+    
+    div {
+      display: inline-block;
+      padding: 8px 2px;
+
+      a, time {
+        vertical-align: middle;
+      }
+    }
+
+    div.edit-panel {
+      position: absolute;
+      right: 0;
+    }
+
+    .gravatar > img{
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+form.post-form {
+  input, textarea {
+    width: 100%;
+  }
+}

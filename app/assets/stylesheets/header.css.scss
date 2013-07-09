@@ -1,0 +1,28 @@
+/* Header */
+
+#logo {
+  text-decoration: none;
+  float: left;
+  color: #999;
+  font-weight: bold;
+  font-size: 1.7em;
+  line-height: 1;
+  padding: 9px;
+}
+
+#logo:hover {
+  color: white;
+  background: black;
+}
+
+ul.nav.pull-right {
+  li {
+    > a:hover {
+      color: white;
+      background: black;
+    }
+    > a {
+      font-weight: bold;
+    }
+  }
+}
