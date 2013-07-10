@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Unprismatic::Application.load_tasks
+Prismless::Application.load_tasks
