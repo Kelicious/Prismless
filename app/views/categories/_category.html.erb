@@ -5,8 +5,8 @@
       <th>Latest Activity</th>
       <% if current_user.is_admin?(category.community) %>
         <th class="admin">
-          <%= link_to "Add Forum", new_category_forum_path(category), class: "btn btn-success" %>
-          <%= link_to "Delete Category", category, method: :delete, confirm: "Are you sure you want to delete the category #{category.name}?", class: "btn btn-danger" %>
+          <%= link_to "Add Forum", new_category_forum_path(category) %>
+          <%= link_to "Delete Category", category, method: :delete, confirm: "Are you sure you want to delete the category #{category.name}?" %>
         </th>
       <% end %>
     </tr>

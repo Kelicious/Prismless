@@ -2,6 +2,10 @@
   display: none;
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
 .clearfix:after {
   content: ".";
   display: block;

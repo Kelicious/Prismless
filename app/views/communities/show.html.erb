@@ -10,7 +10,7 @@
   </section>
   <% if current_user.is_admin?(@community) %>
     <section class="admin-panel">
-      <%= link_to "Add Category", new_community_category_path(@community), class: "btn btn-success" %>
+      <%= link_to "Add Category", new_community_category_path(@community) %>
     </section>
   <% end %>
   <section class="categories">
