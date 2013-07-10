@@ -1,7 +1,3 @@
-.btn {
-  font-weight: bold;
-}
-
 .btn-danger {
   display: inline-block;
   box-sizing: border-box;
@@ -19,6 +15,9 @@ table.category {
 
     .admin {
       width: 260px;
+      a {
+        font-weight: normal;
+      }
     }
 
     td:nth-child(2), th:nth-child(2) {
